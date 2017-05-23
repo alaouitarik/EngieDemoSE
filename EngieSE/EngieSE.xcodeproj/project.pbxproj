@@ -112,15 +112,15 @@
 				9D7ECBAD1ED33E3C0059AEA5 /* DashboardViewController.m */,
 				9D4F04DB1ED3C55A00E344CA /* MenuViewController.h */,
 				9D4F04DC1ED3C55A00E344CA /* MenuViewController.m */,
+				9D7ECBC01ED3AA380059AEA5 /* SubcriptionViewController.h */,
+				9D7ECBC11ED3AA380059AEA5 /* SubcriptionViewController.m */,
+				9D4F04DE1ED3C91400E344CA /* WelcomeViewController.h */,
+				9D4F04DF1ED3C91400E344CA /* WelcomeViewController.m */,
 				9D7ECBAF1ED33E3C0059AEA5 /* Main.storyboard */,
 				9D7ECBB51ED33E3C0059AEA5 /* Assets.xcassets */,
 				9D7ECBB71ED33E3C0059AEA5 /* LaunchScreen.storyboard */,
 				9D7ECBBA1ED33E3C0059AEA5 /* Info.plist */,
 				9D7ECBA61ED33E3C0059AEA5 /* Supporting Files */,
-				9D7ECBC01ED3AA380059AEA5 /* SubcriptionViewController.h */,
-				9D7ECBC11ED3AA380059AEA5 /* SubcriptionViewController.m */,
-				9D4F04DE1ED3C91400E344CA /* WelcomeViewController.h */,
-				9D4F04DF1ED3C91400E344CA /* WelcomeViewController.m */,
 			);
 			path = EngieSE;
 			sourceTree = "<group>";

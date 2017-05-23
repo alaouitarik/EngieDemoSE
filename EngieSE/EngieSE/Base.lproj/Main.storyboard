@@ -237,7 +237,7 @@ pour vous inscrire, veuillez cliquer sur le bouton ci-dessous</string>
                                         <color key="textColor" red="0.3294117647" green="0.41176470590000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nom" textAlignment="natural" minimumFontSize="17" background="FieldInput" translatesAutoresizingMaskIntoConstraints="NO" id="5Wd-D1-T6X" customClass="CustomTextFied">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nom" textAlignment="natural" minimumFontSize="17" background="FieldInput" translatesAutoresizingMaskIntoConstraints="NO" id="5Wd-D1-T6X" customClass="CustomTextFied">
                                         <rect key="frame" x="11" y="74" width="353" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="P7N-z5-5zi"/>
@@ -248,8 +248,11 @@ pour vous inscrire, veuillez cliquer sur le bouton ci-dessous</string>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="icon" value="User_Ico"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="qn6-ux-J5F" id="gTk-tv-Tbp"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Prénom" textAlignment="natural" minimumFontSize="17" background="FieldInput" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-WM-O8A" customClass="CustomTextFied">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Prénom" textAlignment="natural" minimumFontSize="17" background="FieldInput" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-WM-O8A" customClass="CustomTextFied">
                                         <rect key="frame" x="11" y="112" width="353" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Jh6-NT-65O"/>
@@ -260,8 +263,11 @@ pour vous inscrire, veuillez cliquer sur le bouton ci-dessous</string>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="icon" value="User_Ico"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="qn6-ux-J5F" id="WQg-SH-yX2"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" background="FieldInput" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-Ko-6mu" customClass="CustomTextFied">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" background="FieldInput" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-Ko-6mu" customClass="CustomTextFied">
                                         <rect key="frame" x="11" y="150" width="353" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="XTa-Uw-mZK"/>
@@ -272,6 +278,9 @@ pour vous inscrire, veuillez cliquer sur le bouton ci-dessous</string>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="icon" value="mail_Ico"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="qn6-ux-J5F" id="J1j-fe-dPm"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uf-6s-lvB">
                                         <rect key="frame" x="16" y="193" width="343" height="36"/>

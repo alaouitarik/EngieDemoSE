@@ -14,11 +14,12 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    _storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedIn"]== true){
+    if([_standardUserDefaults boolForKey:@"isLoggedIn"]== true){
         [self switchToViewController:@"Dashboard"];
     }else{
         [self switchToViewController:@"Welcome"];
@@ -33,18 +34,15 @@
 }
 
 -(void) logout{
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"resultSubscription"];
-    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isLoggedIn"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [_standardUserDefaults removeObjectForKey:kResultSubscription];
+    [_standardUserDefaults setBool:false forKey:kIsLoggedIn];
+    [_standardUserDefaults synchronize];
     [self switchToViewController:@"Welcome"];
     
 }
 -(void) switchToViewController:(NSString *) VCName{
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UIViewController *rootVC = [storyboard instantiateViewControllerWithIdentifier:VCName];
+    UIViewController *rootVC = [_storyboard instantiateViewControllerWithIdentifier:VCName];
     self.window.rootViewController = rootVC;
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

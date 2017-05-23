@@ -7,7 +7,6 @@
 //
 
 #import "CustomTextFied.h"
-#import <QuartzCore/QuartzCore.h>
 
 @interface CustomTextFied(){
     UIImageView *leftIco;
@@ -18,7 +17,11 @@
 
 @implementation CustomTextFied
 
--(void) drawRect:(CGRect)rect{
+-(void) prepareForInterfaceBuilder{
+    [self setupTextField];
+}
+
+-(void) setupTextField{
     
     // affichage de l'icon de gauche si elle est renseigné dans le storyboard
     if(!leftIco && _icon)
@@ -29,11 +32,15 @@
     
     self.leftView = leftIco;
     self.leftViewMode = UITextFieldViewModeAlways;
-
+    
     self.rightView = rightIco;
     self.rightViewMode = UITextFieldViewModeNever;
 }
 
+-(void) awakeFromNib{
+    [super awakeFromNib];
+    [self setupTextField];
+}
 
 -(void) showError:(BOOL) isError{
     self.rightViewMode = (isError) ? UITextFieldViewModeAlways : UITextFieldViewModeNever;

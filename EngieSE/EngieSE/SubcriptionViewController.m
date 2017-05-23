@@ -9,7 +9,8 @@
 #import "SubcriptionViewController.h"
 #import "AppDelegate.h"
 
-@interface SubcriptionViewController ()
+@interface SubcriptionViewController ()<UITextFieldDelegate>
+
 
 @end
 
@@ -25,6 +26,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField*)textField
+{
+    NSInteger nextTag=textField.tag+1;
+    UIResponder* nextResponder=[textField.superview viewWithTag:nextTag];
+    if (nextResponder)
+        [nextResponder becomeFirstResponder];
+    else{
+        [textField resignFirstResponder];
+        [self validateSubscription:_validateBtn];
+    }
+    return NO;
+}
+
+-(BOOL) isTextFieldEmpty:(CustomTextFied *) textField{
+    BOOL haveError = [textField.text isEqualToString:@""];
+    [textField showError:haveError];
+    return haveError;
+}
 
 - (IBAction)validateSubscription:(id)sender {
 
@@ -32,34 +51,20 @@
     [_validateBtn setEnabled:FALSE];
     [_errorMsg setHidden:FALSE];
     
-    if([_lastName.text isEqualToString:@""]){
-        haveError = true;
-        [_lastName showError:TRUE];
-    }else{
-        [_lastName showError:FALSE];
-    }
-    if([_firstName.text isEqualToString:@""]){
-        haveError = true;
-        [_firstName showError:TRUE];
-    }else{
-        [_firstName showError:FALSE];
-    }
-    if([_email.text isEqualToString:@""]){
-        haveError = true;
-        [_email showError:TRUE];
-    }else{
-        [_email showError:FALSE];
-    }
-
-    [_lastName resignFirstResponder];
-    [_firstName resignFirstResponder];
-    [_email resignFirstResponder];
+    haveError = [self isTextFieldEmpty:_lastName];
+    haveError |= [self isTextFieldEmpty:_firstName];
+    haveError |= [self isTextFieldEmpty:_email];
+    
+    // CACHER LE CLAVIER
+    [self.view endEditing:TRUE];
+    
     if(haveError){
         [_errorMsg setHidden:FALSE];
         [_validateBtn setEnabled:TRUE];
         [_errorMsg setText:@"Veuillez vérifier les informations que vous avez saisies."];
     }else{
-        // Envoi de l'inscription
+        
+        // Envoi de l'inscription si tout est OK
         [_errorMsg setHidden:TRUE];
         [_validateBtn setEnabled:FALSE];
         
@@ -72,12 +77,13 @@
 
                         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
                             // SUCCES : sauvegarde des infos dans les sharedPreferences
-                            [[NSUserDefaults standardUserDefaults] setObject:result forKey:@"resultSubscription"];
-                            [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"isLoggedIn"];
-                            [[NSUserDefaults standardUserDefaults] synchronize];
+                            AppDelegate *app = [AppDelegate delegate];
+                            [app.standardUserDefaults setObject:result forKey:kResultSubscription];
+                            [app.standardUserDefaults setBool:true forKey:kIsLoggedIn];
+                            [app.standardUserDefaults synchronize];
 
                             dispatch_async(dispatch_get_main_queue(), ^(void){
-                                    [[AppDelegate delegate] switchToViewController:@"Dashboard"];
+                                    [app switchToViewController:@"Dashboard"];
                             });
                         });
 
