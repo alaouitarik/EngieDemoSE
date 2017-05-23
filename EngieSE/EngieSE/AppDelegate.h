@@ -11,6 +11,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
++(AppDelegate*) delegate;
+
+-(void) logout;
+-(void) switchToViewController:(NSString *) VCName;
 
 @end
 

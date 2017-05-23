@@ -17,9 +17,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedIn"]== true){
+        [self switchToViewController:@"Dashboard"];
+    }else{
+        [self switchToViewController:@"Welcome"];
+    }
+    
+    
     return YES;
 }
 
++(AppDelegate*) delegate{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+-(void) logout{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"resultSubscription"];
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isLoggedIn"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self switchToViewController:@"Welcome"];
+    
+}
+-(void) switchToViewController:(NSString *) VCName{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *rootVC = [storyboard instantiateViewControllerWithIdentifier:VCName];
+    self.window.rootViewController = rootVC;
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

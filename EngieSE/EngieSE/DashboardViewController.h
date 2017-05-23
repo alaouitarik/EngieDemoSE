@@ -10,6 +10,7 @@
 
 @interface DashboardViewController : UIViewController
 
+-(void)slideMenuBurgerPressed:(UIButton *) sender;
 
 @end
 

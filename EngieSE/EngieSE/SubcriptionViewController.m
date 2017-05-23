@@ -7,6 +7,7 @@
 //
 
 #import "SubcriptionViewController.h"
+#import "AppDelegate.h"
 
 @interface SubcriptionViewController ()
 
@@ -49,7 +50,10 @@
     }else{
         [_email showError:FALSE];
     }
-    
+
+    [_lastName resignFirstResponder];
+    [_firstName resignFirstResponder];
+    [_email resignFirstResponder];
     if(haveError){
         [_errorMsg setHidden:FALSE];
         [_validateBtn setEnabled:TRUE];
@@ -65,9 +69,18 @@
                     NSLog(@"%@", result);
                     long status_code = (long)[(NSHTTPURLResponse *)response statusCode];
                     if(status_code == 201 && !error){
-                        // SUCCES
-                        [[NSUserDefaults standardUserDefaults] setObject:result forKey:@"resultSubscription"];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
+
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                            // SUCCES : sauvegarde des infos dans les sharedPreferences
+                            [[NSUserDefaults standardUserDefaults] setObject:result forKey:@"resultSubscription"];
+                            [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"isLoggedIn"];
+                            [[NSUserDefaults standardUserDefaults] synchronize];
+
+                            dispatch_async(dispatch_get_main_queue(), ^(void){
+                                    [[AppDelegate delegate] switchToViewController:@"Dashboard"];
+                            });
+                        });
+
                     }else{
                         [_errorMsg setHidden:FALSE];
                         [_errorMsg setText:@"Une erreur est survenue.\nVeuillez vérifier les données de votre formulaire ou votre connexion à internet."];

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9D4F04D41ED3C24400E344CA /* EngieSETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F04D31ED3C24400E344CA /* EngieSETests.m */; };
+		9D4F04DD1ED3C55A00E344CA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F04DC1ED3C55A00E344CA /* MenuViewController.m */; };
+		9D4F04E01ED3C91400E344CA /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F04DF1ED3C91400E344CA /* WelcomeViewController.m */; };
 		9D7ECBA81ED33E3C0059AEA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7ECBA71ED33E3C0059AEA5 /* main.m */; };
 		9D7ECBAB1ED33E3C0059AEA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7ECBAA1ED33E3C0059AEA5 /* AppDelegate.m */; };
 		9D7ECBAE1ED33E3C0059AEA5 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7ECBAD1ED33E3C0059AEA5 /* DashboardViewController.m */; };
@@ -33,6 +35,10 @@
 		9D4F04D11ED3C24300E344CA /* EngieSETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngieSETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4F04D31ED3C24400E344CA /* EngieSETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngieSETests.m; sourceTree = "<group>"; };
 		9D4F04D51ED3C24400E344CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D4F04DB1ED3C55A00E344CA /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		9D4F04DC1ED3C55A00E344CA /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		9D4F04DE1ED3C91400E344CA /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		9D4F04DF1ED3C91400E344CA /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		9D7ECBA31ED33E3C0059AEA5 /* EngieSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngieSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7ECBA71ED33E3C0059AEA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D7ECBA91ED33E3C0059AEA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 				9D7ECBAA1ED33E3C0059AEA5 /* AppDelegate.m */,
 				9D7ECBAC1ED33E3C0059AEA5 /* DashboardViewController.h */,
 				9D7ECBAD1ED33E3C0059AEA5 /* DashboardViewController.m */,
+				9D4F04DB1ED3C55A00E344CA /* MenuViewController.h */,
+				9D4F04DC1ED3C55A00E344CA /* MenuViewController.m */,
 				9D7ECBAF1ED33E3C0059AEA5 /* Main.storyboard */,
 				9D7ECBB51ED33E3C0059AEA5 /* Assets.xcassets */,
 				9D7ECBB71ED33E3C0059AEA5 /* LaunchScreen.storyboard */,
@@ -111,6 +119,8 @@
 				9D7ECBA61ED33E3C0059AEA5 /* Supporting Files */,
 				9D7ECBC01ED3AA380059AEA5 /* SubcriptionViewController.h */,
 				9D7ECBC11ED3AA380059AEA5 /* SubcriptionViewController.m */,
+				9D4F04DE1ED3C91400E344CA /* WelcomeViewController.h */,
+				9D4F04DF1ED3C91400E344CA /* WelcomeViewController.m */,
 			);
 			path = EngieSE;
 			sourceTree = "<group>";
@@ -250,6 +260,8 @@
 				9D7ECBC61ED3AB0A0059AEA5 /* PopViewControllerSegue.m in Sources */,
 				9D7ECBAB1ED33E3C0059AEA5 /* AppDelegate.m in Sources */,
 				9D7ECBC91ED3AF430059AEA5 /* CustomTextFied.m in Sources */,
+				9D4F04DD1ED3C55A00E344CA /* MenuViewController.m in Sources */,
+				9D4F04E01ED3C91400E344CA /* WelcomeViewController.m in Sources */,
 				9D7ECBA81ED33E3C0059AEA5 /* main.m in Sources */,
 				9D7ECBC21ED3AA380059AEA5 /* SubcriptionViewController.m in Sources */,
 			);
